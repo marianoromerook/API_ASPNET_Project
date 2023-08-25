@@ -1,12 +1,8 @@
+
+using API_RESTful_Project.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-
-builder.Services.AddControllers();
-
 
 // Configuración de las políticas de Cross-Origin Resource Sharing (CORS) para permitir que ReactJS acceda a la API.
 builder.Services.AddCors(options =>
@@ -20,7 +16,15 @@ builder.Services.AddCors(options =>
         });
 });
 
+builder.Services.AddControllers();
 
+// Configuración de la base de datos y la clase de contexto
+builder.Services.AddDbContext<DbContextApp>(options =>
+{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
+// Configuración de Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -34,6 +38,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseRouting();
+
+app.UseCors("ReactAppPolicy"); // Usar la política CORS creada
 
 app.UseAuthorization();
 

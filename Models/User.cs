@@ -7,5 +7,7 @@
         public string? PasswordHash { get; set; }
 
         public string? Salt { get; set; }
+
+        public ICollection<Postulate>? Postulates { get; set; }
     }
 }
