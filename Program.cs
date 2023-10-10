@@ -1,5 +1,6 @@
 
 using API_RESTful_Project.Models;
+using API_RESTful_Project.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,12 @@ builder.Services.AddCors(options =>
                    .AllowAnyMethod();
         });
 });
+
+// Configuración de las interfaces
+/*
+builder.Services.AddScoped<ICustomerService, CustomerService>(); 
+builder.Services.AddScoped<IEcommerceService, EcommerceService>(); 
+builder.Services.AddScoped<IDataService, DataService>(); */
 
 builder.Services.AddControllers();
 

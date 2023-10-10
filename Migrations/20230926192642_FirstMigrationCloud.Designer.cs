@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace API_RESTful_Project.Migrations
 {
     [DbContext(typeof(DbContextApp))]
-    [Migration("20230825210832_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20230926192642_FirstMigrationCloud")]
+    partial class FirstMigrationCloud
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

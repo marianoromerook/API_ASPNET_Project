@@ -1,4 +1,5 @@
 ﻿using API_RESTful_Project.Exceptions;
+using API_RESTful_Project.ModulesAPI.WooCommerce.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using WooCommerceNET;
@@ -29,13 +30,24 @@ namespace API_RESTful_Project.ModulesAPI.WooCommerce.Controllers
         }
 
         [HttpGet("customers")]
-        public IActionResult GetCustomers()
+        public async Task<IActionResult> GetCustomersAsync()
         {
             try
             {
                 var wc = new WCObject(_woocommerceApi);
-                var customers = wc.Customer.GetAll();
-                return Ok(customers);
+                var customers = await wc.Customer.GetAll();
+
+                // Mapea los clientes de WooCommerce a objetos de tu clase modelo
+                var wooCustomers = customers.Select(c => new WooCustomers
+                {
+                    Id = (int)c.id.GetValueOrDefault(), // Conversión explícita de ulong? a int
+                    FirstName = c.first_name,
+                    LastName = c.last_name,
+                    Email = c.email,
+                    
+                });
+
+                return Ok(wooCustomers);
             }
             catch (WooRequestException ex)
             {

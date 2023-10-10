@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ICcRU7/4csMW2DXOE85UGckauhcjzfj2ciqH7JlQwVo8yulVLDhxsLrse+ePXj0NbtVpP/TewuHxx/p2aBTB6A==",
+  "dgSpecHash": "DD4D/KKZuWXK3efFVhQXsxyDc7sZ46VqF7/gplWb3t1Gp12rJ9D4WRbJGG2u3jdIeL1vh32XHBGsfbXPyY4GYA==",
   "success": true,
   "projectFilePath": "C:\\Users\\romer\\source\\repos\\API_RESTful_Project\\API_RESTful_Project.csproj",
   "expectedPackageFiles": [
@@ -33,6 +33,7 @@
     "C:\\Users\\romer\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\romer\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
     "C:\\Users\\romer\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\romer\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\romer\\.nuget\\packages\\npgsql\\7.0.4\\npgsql.7.0.4.nupkg.sha512",
     "C:\\Users\\romer\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\7.0.4\\npgsql.entityframeworkcore.postgresql.7.0.4.nupkg.sha512",
     "C:\\Users\\romer\\.nuget\\packages\\restsharp\\110.2.0\\restsharp.110.2.0.nupkg.sha512",
