@@ -1,4 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Bogus;
+
+
 
 namespace API_RESTful_Project.Models
 {
@@ -38,6 +41,22 @@ namespace API_RESTful_Project.Models
                 .HasOne(p => p.Usuario)
                 .WithMany(u => u.Postulates) // Agregar esta línea para establecer la propiedad de navegación inversa
                 .HasForeignKey(p => p.UsuarioId);
+        }
+
+        public class DataSeeder
+        {
+            public static void SeedData(DbContextApp context)
+            {
+                var faker = new Faker<User>()
+                    .RuleFor(u => u.UserName, f => f.Internet.UserName())
+                    .RuleFor(u => u.Email, (f, u) => f.Internet.Email(u.UserName))
+                    .RuleFor(u => u.PasswordHash, f => f.Internet.Password());
+
+                var users = faker.Generate(10); // Generar 10 usuarios ficticios
+
+                context.Users.AddRange(users);
+                context.SaveChanges();
+            }
         }
     }
 }

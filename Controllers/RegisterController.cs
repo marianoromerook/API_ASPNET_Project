@@ -6,12 +6,11 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using API_RESTful_Project.Exceptions;
-
-
+using static API_RESTful_Project.Models.DbContextApp;
 
 namespace API_RESTful_Project.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[register]")]
     [ApiController]
     public class RegisterController : ControllerBase
     {
@@ -95,10 +94,22 @@ namespace API_RESTful_Project.Controllers
                 _logger.LogError(ex, "An unexpected error occurred.");
                 return StatusCode(500, "An unexpected error occurred.");
             }
-            
-            
 
+        }
 
+        [HttpPost("seed-users")]
+        public IActionResult SeedUsers()
+        {
+            try
+            {
+                DataSeeder.SeedData(_dbContext); // Llama al método para insertar usuarios ficticios
+                return Ok("Usuarios ficticios insertados en la base de datos.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unexpected error occurred.");
+                return StatusCode(500, "An unexpected error occurred.");
+            }
         }
     }
 

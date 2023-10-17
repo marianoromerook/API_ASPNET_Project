@@ -49,3 +49,5 @@ C:\Users\romer\source\repos\API_RESTful_Project\bin\Debug\net7.0\Microsoft.Entit
 C:\Users\romer\source\repos\API_RESTful_Project\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\romer\source\repos\API_RESTful_Project\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\romer\source\repos\API_RESTful_Project\bin\Debug\net7.0\System.CodeDom.dll
+C:\Users\romer\source\repos\API_RESTful_Project\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\romer\source\repos\API_RESTful_Project\bin\Debug\net7.0\Bogus.dll

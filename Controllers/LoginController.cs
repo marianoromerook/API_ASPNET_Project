@@ -4,7 +4,7 @@ using API_RESTful_Project.Services;
 
 namespace PlatformProject.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[login]")]
     [ApiController]
     public class LoginController : ControllerBase
     {

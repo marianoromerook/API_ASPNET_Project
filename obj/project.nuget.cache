@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "DD4D/KKZuWXK3efFVhQXsxyDc7sZ46VqF7/gplWb3t1Gp12rJ9D4WRbJGG2u3jdIeL1vh32XHBGsfbXPyY4GYA==",
+  "dgSpecHash": "JMf4WMI8bFzi1P6gmTF8NFWPK44s7GCDKK9gKA56e9NPI1HPjNLzY2iZX2Gn2D7CZrtwX6G5jBrTuJMjGPC+2g==",
   "success": true,
   "projectFilePath": "C:\\Users\\romer\\source\\repos\\API_RESTful_Project\\API_RESTful_Project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\romer\\.nuget\\packages\\bcrypt.net\\0.1.0\\bcrypt.net.0.1.0.nupkg.sha512",
+    "C:\\Users\\romer\\.nuget\\packages\\bogus\\34.0.2\\bogus.34.0.2.nupkg.sha512",
     "C:\\Users\\romer\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\romer\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.10\\microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",
     "C:\\Users\\romer\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
