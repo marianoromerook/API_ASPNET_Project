@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API_RESTful_Project.Controllers
 {
-    [Route("api/[search]")]
+    [Route("api/search")]
     [ApiController]
     public class SearchController : ControllerBase
     {

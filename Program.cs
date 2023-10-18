@@ -1,6 +1,5 @@
 
 using API_RESTful_Project.Models;
-using API_RESTful_Project.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

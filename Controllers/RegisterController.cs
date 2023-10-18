@@ -10,7 +10,7 @@ using static API_RESTful_Project.Models.DbContextApp;
 
 namespace API_RESTful_Project.Controllers
 {
-    [Route("api/[register]")]
+    [Route("api/register")]
     [ApiController]
     public class RegisterController : ControllerBase
     {
@@ -115,8 +115,8 @@ namespace API_RESTful_Project.Controllers
 
     public class RegistrationRequest
     {
-        public required string Username { get; set; }
-        public required string Password { get; set; }
+        public string? Username { get; set; }
+        public string? Password { get; set; }
     }
 }
 

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API_RESTful_Project.Controllers
 {
-    [Route("api/[postulate]")]
+    [Route("api/postulate")]
     [ApiController]
     public class PostulateController : ControllerBase
     {

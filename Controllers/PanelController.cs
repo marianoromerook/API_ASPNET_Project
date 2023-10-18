@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API_RESTful_Project.Controllers
 {
-    [Route("api/[panel]")]
+    [Route("api/panel")]
     [ApiController]
     public class PanelController : ControllerBase
     {
