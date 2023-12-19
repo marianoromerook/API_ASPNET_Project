@@ -57,6 +57,7 @@ namespace API_RESTful_Project.Migrations
             modelBuilder.Entity("API_RESTful_Project.Models.User", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("text");
 
                     b.Property<string>("Email")
@@ -78,14 +79,14 @@ namespace API_RESTful_Project.Migrations
 
             modelBuilder.Entity("API_RESTful_Project.Models.UserNetwork", b =>
                 {
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
+
                     b.Property<string>("Content")
                         .HasColumnType("text");
 
                     b.Property<string>("FriendId")
                         .HasColumnType("text");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("integer");
 
                     b.Property<string>("Link")
                         .HasColumnType("text");
@@ -101,6 +102,8 @@ namespace API_RESTful_Project.Migrations
 
                     b.Property<string>("UserId")
                         .HasColumnType("text");
+
+                    b.HasKey("Id");
 
                     b.ToTable("UserNetworks");
                 });

@@ -46,15 +46,13 @@ namespace API_RESTful_Project.Models
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<UserNetwork>().HasNoKey();
-
-         
-
             modelBuilder.Entity<Postulate>()
                 .HasOne(p => p.Usuario)
-                .WithMany(u => u.Postulates) // Agregar esta línea para establecer la propiedad de navegación inversa
-                .HasForeignKey(p => p.UsuarioId);
+                .WithMany(u => u.Postulates)
+                .HasForeignKey(p => p.UsuarioId)
+                .HasPrincipalKey(u => u.Id); 
         }
+
 
         public class DataSeeder
         {

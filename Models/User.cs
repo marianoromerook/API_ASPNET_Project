@@ -1,8 +1,13 @@
-﻿namespace API_RESTful_Project.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace API_RESTful_Project.Models
 {
     public class User
     {
-        public string? Id { get; set; } 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public string Id { get; set; }
         public string? UserName { get; set; }
         public string? PasswordHash { get; set; }
         public string? Email { get; set; }

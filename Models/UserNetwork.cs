@@ -14,7 +14,7 @@
         public string? Name { get; set; }
         public FriendRequestStatus Status { get; set; }
 
-        public int Id { get; set; }
+        public string? Id { get; set; }
 
         public enum FriendRequestStatus
         {
