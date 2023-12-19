@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Bogus;
-
+using API_RESTful_Project.Services;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 
 
 namespace API_RESTful_Project.Models
@@ -13,16 +15,27 @@ namespace API_RESTful_Project.Models
 
         public DbSet<UserNetwork> UserNetworks { get; set; }
 
-        public DbSet<StoreConnection> StoreConnections { get; set; }
+        //public DbSet<LinkModel> Links { get; set; }
 
         private readonly IConfiguration _configuration;
+        private readonly PasswordService _passwordService;
 
 
-
-        public DbContextApp(DbContextOptions<DbContextApp> options, IConfiguration configuration) : base(options)
+        public DbContextApp(DbContextOptions<DbContextApp> options, IConfiguration configuration, PasswordService passwordService) : base(options)
         {
             _configuration = configuration;
+            _passwordService = passwordService;
+
+            // Aplicar migraciones al iniciar la aplicación
+            Database.Migrate();
+
+            // Semilla de datos ficticios
+            DataSeeder.SeedData(this);
+
+            // Semilla del usuario de prueba
+            DataSeeder.SeedTestUser(this, _passwordService);
         }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -35,7 +48,7 @@ namespace API_RESTful_Project.Models
 
             modelBuilder.Entity<UserNetwork>().HasNoKey();
 
-            modelBuilder.Entity<StoreConnection>().ToTable("StoreConnections");
+         
 
             modelBuilder.Entity<Postulate>()
                 .HasOne(p => p.Usuario)
@@ -57,6 +70,38 @@ namespace API_RESTful_Project.Models
                 context.Users.AddRange(users);
                 context.SaveChanges();
             }
+
+            public static void SeedTestUser(DbContextApp context, PasswordService passwordService)
+            {
+                // Verificar si el usuario de prueba ya existe en la base de datos
+                var existingTestUser = context.Users.FirstOrDefault(u => u.UserName == "test_user");
+                if (existingTestUser == null)
+                {
+                    // Contraseña para el usuario de prueba
+                    const string TestUserPassword = "testpassword";
+
+                    // Generar un salt aleatorio
+                    string salt = BCrypt.Net.BCrypt.GenerateSalt();
+
+                    // Concatenar el salt con la contraseña del usuario
+                    string hashedPassword = passwordService.HashPassword(TestUserPassword + salt);
+
+                    // Crear el usuario de prueba
+                    var testUser = new User
+                    {
+                        UserName = "test_user",
+                        PasswordHash = hashedPassword,
+                        Salt = salt,
+                        Email = "marianoromero40@gmail.com"
+                    };
+
+                    // Guardar el usuario de prueba en la base de datos
+                    context.Users.Add(testUser);
+                    context.SaveChanges();
+                }
+            }
+
+
         }
     }
 }

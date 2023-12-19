@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[34.0.2, )"
             },
+            "MailChimp.Net.V3": {
+              "target": "Package",
+              "version": "[5.5.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.10, )"

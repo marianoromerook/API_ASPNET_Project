@@ -51,3 +51,4 @@ C:\Users\romer\source\repos\API_RESTful_Project\bin\Debug\net7.0\Mono.TextTempla
 C:\Users\romer\source\repos\API_RESTful_Project\bin\Debug\net7.0\System.CodeDom.dll
 C:\Users\romer\source\repos\API_RESTful_Project\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Users\romer\source\repos\API_RESTful_Project\bin\Debug\net7.0\Bogus.dll
+C:\Users\romer\source\repos\API_RESTful_Project\bin\Debug\net7.0\MailChimp.Net.dll

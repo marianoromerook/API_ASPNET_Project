@@ -102,7 +102,9 @@ namespace API_RESTful_Project.Controllers
         {
             try
             {
-                DataSeeder.SeedData(_dbContext); // Llama al método para insertar usuarios ficticios
+                // Llama al método para insertar usuarios ficticios
+                DbContextApp.DataSeeder.SeedData(_dbContext);
+
                 return Ok("Usuarios ficticios insertados en la base de datos.");
             }
             catch (Exception ex)
@@ -111,6 +113,24 @@ namespace API_RESTful_Project.Controllers
                 return StatusCode(500, "An unexpected error occurred.");
             }
         }
+
+        [HttpPost("create-test-user")]
+        public IActionResult CreateTestUser()
+        {
+            try
+            {
+                // Llama al método para crear el usuario de prueba
+                DbContextApp.DataSeeder.SeedTestUser(_dbContext, _passwordService);
+
+                return Ok("Usuario de prueba creado exitosamente.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unexpected error occurred.");
+                return StatusCode(500, "An unexpected error occurred.");
+            }
+        }
+
     }
 
     public class RegistrationRequest
@@ -118,5 +138,7 @@ namespace API_RESTful_Project.Controllers
         public string? Username { get; set; }
         public string? Password { get; set; }
     }
+
+
 }
 

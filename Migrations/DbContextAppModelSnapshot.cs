@@ -54,43 +54,6 @@ namespace API_RESTful_Project.Migrations
                     b.ToTable("Postulates");
                 });
 
-            modelBuilder.Entity("API_RESTful_Project.Models.StoreConnection", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("ShopifyApiKey")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("ShopifyApiSecret")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("ShopifyUrl")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("WooCommerceConsumerKey")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("WooCommerceConsumerSecret")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("WooCommerceUrl")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("StoreConnections", (string)null);
-                });
-
             modelBuilder.Entity("API_RESTful_Project.Models.User", b =>
                 {
                     b.Property<string>("Id")
